@@ -17,10 +17,10 @@ class WhiteBishop < Piece
     i = 1
     while i < 8
       diagonal_attack = position_column[position_column.find_index(column)+i].to_s + (row + i).to_s
-      if (board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].is_a?(Empty))
+      if empty_square?(diagonal_attack, board)
         @moves << diagonal_attack 
         i+=1
-      elsif board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].team == "black"
+      elsif enemy_square?(diagonal_attack, board)
         @moves << diagonal_attack
         i = 8
       else
@@ -31,10 +31,10 @@ class WhiteBishop < Piece
     i = 1
     while i < 8
       diagonal_attack = position_column[position_column.find_index(column)+i].to_s + (row - i).to_s
-      if (board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].is_a?(Empty))
+      if empty_square?(diagonal_attack, board)
         @moves << diagonal_attack 
         i+=1
-      elsif board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].team == "black"
+      elsif enemy_square?(diagonal_attack, board)
         @moves << diagonal_attack
         i = 8
       else
@@ -45,10 +45,10 @@ class WhiteBishop < Piece
     i = 1
     while i < 8
       diagonal_attack = position_column[position_column.find_index(column)-i].to_s + (row + i).to_s
-      if (board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].is_a?(Empty))
+      if empty_square?(diagonal_attack, board)
         @moves << diagonal_attack 
         i+=1
-      elsif board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].team == "black"
+      elsif enemy_square?(diagonal_attack, board)
         @moves << diagonal_attack
         i = 8
       else
@@ -59,10 +59,10 @@ class WhiteBishop < Piece
     i = 1
     while i < 8
       diagonal_attack = position_column[position_column.find_index(column)-i].to_s + (row - i).to_s
-      if (board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].is_a?(Empty))
+      if empty_square?(diagonal_attack, board)
         @moves << diagonal_attack 
         i+=1
-      elsif board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].team == "black"
+      elsif enemy_square?(diagonal_attack, board)
         @moves << diagonal_attack
         i = 8
       else
@@ -95,10 +95,10 @@ class BlackBishop < Piece
     i = 1
     while i < 8
       diagonal_attack = position_column[position_column.find_index(column)+i].to_s + (row + i).to_s
-      if (board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].is_a?(Empty))
+      if empty_square?(diagonal_attack, board)
         @moves << diagonal_attack 
         i+=1
-      elsif board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].team == "white"
+      elsif enemy_square?(diagonal_attack, board)
         @moves << diagonal_attack
         i = 8
       else
@@ -109,10 +109,10 @@ class BlackBishop < Piece
     i = 1
     while i < 8
       diagonal_attack = position_column[position_column.find_index(column)+i].to_s + (row - i).to_s
-      if (board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].is_a?(Empty))
+      if empty_square?(diagonal_attack, board)
         @moves << diagonal_attack 
         i+=1
-      elsif board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].team == "white"
+      elsif enemy_square?(diagonal_attack, board)
         @moves << diagonal_attack
         i = 8
       else
@@ -123,10 +123,10 @@ class BlackBishop < Piece
     i = 1
     while i < 8
       diagonal_attack = position_column[position_column.find_index(column)-i].to_s + (row + i).to_s
-      if (board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].is_a?(Empty))
+      if empty_square?(diagonal_attack, board)
         @moves << diagonal_attack 
         i+=1
-      elsif board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].team == "white"
+      elsif enemy_square?(diagonal_attack, board)
         @moves << diagonal_attack
         i = 8
       else
@@ -137,10 +137,10 @@ class BlackBishop < Piece
     i = 1
     while i < 8
       diagonal_attack = position_column[position_column.find_index(column)-i].to_s + (row - i).to_s
-      if (board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].is_a?(Empty))
+      if empty_square?(diagonal_attack, board)
         @moves << diagonal_attack 
         i+=1
-      elsif board[diagonal_attack.to_sym] != nil && board[diagonal_attack.to_sym].team == "white"
+      elsif enemy_square?(diagonal_attack, board)
         @moves << diagonal_attack
         i = 8
       else
