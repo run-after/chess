@@ -10,6 +10,10 @@ class Rook < Piece
   def next_move(position, board)
     @position = position
     @moves = []
+    position_column = [nil, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+    column = position[0]
+    row = position[1].to_i
+    column_number = position_column.find_index(column)
     i = 1
     while i < 8
       right = position_column[column_number + i].to_s + row.to_s
