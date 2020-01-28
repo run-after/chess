@@ -11,62 +11,63 @@ class Bishop < Piece
     position_column = [nil, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
     column = position[0]
     row = position[1].to_i
-    ### up and to the right ###
+
     i = 1
     while i < 8
-      diagonal_attack = position_column[position_column.find_index(column)+i].to_s + (row + i).to_s
-      if empty_square?(diagonal_attack, board)
-        @moves << diagonal_attack 
+      up_right = position_column[position_column.find_index(column)+i].to_s + (row + i).to_s
+      if empty_square?(up_right, board)
+        @moves << up_right 
         i+=1
-      elsif enemy_square?(diagonal_attack, board)
-        @moves << diagonal_attack
+      elsif enemy_square?(up_right, board)
+        @moves << up_right
         i = 8
       else
         i = 8
       end
     end
-    ### down and to the right ###
+    
     i = 1
     while i < 8
-      diagonal_attack = position_column[position_column.find_index(column)+i].to_s + (row - i).to_s
-      if empty_square?(diagonal_attack, board)
-        @moves << diagonal_attack 
+      down_right = position_column[position_column.find_index(column)+i].to_s + (row - i).to_s
+      if empty_square?(down_right, board)
+        @moves << down_right
         i+=1
-      elsif enemy_square?(diagonal_attack, board)
-        @moves << diagonal_attack
+      elsif enemy_square?(down_right, board)
+        @moves << down_right
         i = 8
       else
         i = 8
       end
     end
-    ### up and to the left attack ###
+
     i = 1
     while i < 8
-      diagonal_attack = position_column[position_column.find_index(column)-i].to_s + (row + i).to_s
-      if empty_square?(diagonal_attack, board)
-        @moves << diagonal_attack 
+      up_left = position_column[position_column.find_index(column)-i].to_s + (row + i).to_s
+      if empty_square?(up_left, board)
+        @moves << up_left
         i+=1
-      elsif enemy_square?(diagonal_attack, board)
-        @moves << diagonal_attack
+      elsif enemy_square?(up_left, board)
+        @moves << up_left
         i = 8
       else
         i = 8
       end
     end
-    ### down and to the left ###
+    
     i = 1
     while i < 8
-      diagonal_attack = position_column[position_column.find_index(column)-i].to_s + (row - i).to_s
-      if empty_square?(diagonal_attack, board)
-        @moves << diagonal_attack 
+      down_left = position_column[position_column.find_index(column)-i].to_s + (row - i).to_s
+      if empty_square?(down_left, board)
+        @moves << down_left 
         i+=1
-      elsif enemy_square?(diagonal_attack, board)
-        @moves << diagonal_attack
+      elsif enemy_square?(down_left, board)
+        @moves << down_left
         i = 8
       else
         i = 8
       end
     end
+   
   end
 end
 
