@@ -29,6 +29,7 @@ class Rook < Piece
           i = 8
         end
       elsif team_square?(right, board)###
+        @moves << right
         i = 8
       else
         i = 8
@@ -49,6 +50,7 @@ class Rook < Piece
           i = 8
         end
       elsif team_square?(left, board)###
+        @moves << left
         i = 8
       else
         i = 8
@@ -69,6 +71,7 @@ class Rook < Piece
           i = 8
         end
       elsif team_square?(up, board)###
+        @moves << up
         i = 8
       else
         i = 8
@@ -89,6 +92,7 @@ class Rook < Piece
           i = 8
         end
       elsif team_square?(down, board)###
+        @moves << down
         i = 8
       else
         i = 8

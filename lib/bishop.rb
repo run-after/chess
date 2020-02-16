@@ -26,6 +26,7 @@ class Bishop < Piece
           i = 8
         end
       elsif team_square?(up_right, board)###
+        @moves << up_right
         i = 8
       else
         i = 8
@@ -46,6 +47,7 @@ class Bishop < Piece
           i = 8
         end
       elsif team_square?(down_right, board)###
+        @moves << down_right
         i = 8
       else
         i = 8
@@ -66,6 +68,7 @@ class Bishop < Piece
           i = 8
         end
       elsif team_square?(up_left, board)###
+        @moves << up_left
         i = 8
       else
         i = 8
@@ -86,6 +89,7 @@ class Bishop < Piece
           i = 8
         end
       elsif team_square?(down_left, board)###
+        @moves << down_left 
         i = 8
       else
         i = 8
