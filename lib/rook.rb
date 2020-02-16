@@ -10,6 +10,7 @@ class Rook < Piece
   def next_move(position, board)
     @position = position
     @moves = []
+    #@first_move = position == @OG_position
     position_column = [nil, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
     column = position[0]
     row = position[1].to_i
@@ -20,8 +21,14 @@ class Rook < Piece
       if empty_square?(right, board)
         @moves << right
         i+=1
-      elsif enemy_square?(right, board)
+      elsif enemy_square?(right, board)###
         @moves << right
+        if board[right.to_sym].is_a?(King)
+          i += 1
+        else
+          i = 8
+        end
+      elsif team_square?(right, board)###
         i = 8
       else
         i = 8
@@ -34,8 +41,14 @@ class Rook < Piece
       if empty_square?(left, board)
         @moves << left
         i+=1
-      elsif enemy_square?(left, board)
+      elsif enemy_square?(left, board)###
         @moves << left
+        if board[left.to_sym].is_a?(King)
+          i += 1
+        else
+          i = 8
+        end
+      elsif team_square?(left, board)###
         i = 8
       else
         i = 8
@@ -48,8 +61,14 @@ class Rook < Piece
       if empty_square?(up, board)
         @moves << up
         i+=1
-      elsif enemy_square?(up, board)
+      elsif enemy_square?(up, board)###
         @moves << up
+        if board[up.to_sym].is_a?(King)
+          i += 1
+        else
+          i = 8
+        end
+      elsif team_square?(up, board)###
         i = 8
       else
         i = 8
@@ -62,8 +81,14 @@ class Rook < Piece
       if empty_square?(down, board)
         @moves << down
         i+=1
-      elsif enemy_square?(down, board)
+      elsif enemy_square?(down, board)###
         @moves << down
+        if board[down.to_sym].is_a?(King)
+          i += 1
+        else
+          i = 8
+        end
+      elsif team_square?(down, board)###
         i = 8
       else
         i = 8
