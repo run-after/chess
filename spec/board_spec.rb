@@ -13,7 +13,16 @@ RSpec.describe Board do
   describe "#draw" do
     it "draws out a chess board with all pieces on move 1" do
       board = Board.new
-      expect{board.draw}.to output("[♖][♘][♗][♕][♔][♗][♘][♖]8\n[♙][♙][♙][♙][♙][♙][♙][♙]7\n[ ][ ][ ][ ][ ][ ][ ][ ]6\n[ ][ ][ ][ ][ ][ ][ ][ ]5\n[ ][ ][ ][ ][ ][ ][ ][ ]4\n[ ][ ][ ][ ][ ][ ][ ][ ]3\n[♟][♟][♟][♟][♟][♟][♟][♟]2\n[♜][♞][♝][♛][♚][♝][♞][♜]1\n a  b  c  d  e  f  g  h\n").to_stdout
+      expect{board.draw}.to output(
+"[♖][♘][♗][♕][♔][♗][♘][♖]8
+[♙][♙][♙][♙][♙][♙][♙][♙]7
+[ ][ ][ ][ ][ ][ ][ ][ ]6
+[ ][ ][ ][ ][ ][ ][ ][ ]5
+[ ][ ][ ][ ][ ][ ][ ][ ]4
+[ ][ ][ ][ ][ ][ ][ ][ ]3
+[♟][♟][♟][♟][♟][♟][♟][♟]2
+[♜][♞][♝][♛][♚][♝][♞][♜]1
+ a  b  c  d  e  f  g  h\n").to_stdout
     end
   end
 end
