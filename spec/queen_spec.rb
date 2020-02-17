@@ -1,0 +1,91 @@
+require_relative "../lib/game.rb"
+
+RSpec.describe Queen do 
+  describe "#team" do
+    it "gives the corresponding color" do
+      queen = WhiteQueen.new("e4")
+      expect(queen.team).to eql("white")
+      queen = BlackQueen.new("e4")
+      expect(queen.team).to eql("black")
+    end
+  end
+  describe "#show" do
+    it "prints out the corresponding piece" do
+      queen = WhiteQueen.new("e4")
+      expect(queen.show).to eql("[♛]")
+      queen = BlackQueen.new("e4")
+      expect(queen.show).to eql("[♕]")
+    end
+  end
+
+  describe "#next_move" do
+    it "adds all potential moves to the @moves array" do
+      board = Board.new
+      empty = Empty.new
+
+      board.board = board.board.each{ |key, value| board.board[key] = empty }
+
+      queen = WhiteQueen.new("e4")
+      queen.next_move("e4", board.board)
+      expect(queen.moves).to eql(["f5", "g6", "h7", "f3", "g2", "h1", "d5", "c6", "b7", "a8", "d3", "c2", "b1",
+                                  "f4", "g4", "h4", "d4", "c4", "b4", "a4", "e5", "e6", "e7", "e8", "e3", "e2", "e1"])
+      queen = BlackQueen.new("e4")
+      queen.next_move("e4", board.board)
+      expect(queen.moves).to eql(["f5", "g6", "h7", "f3", "g2", "h1", "d5", "c6", "b7", "a8", "d3", "c2", "b1",
+                                  "f4", "g4", "h4", "d4", "c4", "b4", "a4", "e5", "e6", "e7", "e8", "e3", "e2", "e1"])
+    end
+    it "makes the last move available the opponent if in line with moves" do
+      board = Board.new
+      empty = Empty.new
+
+      board.board = board.board.each{ |key, value| board.board[key] = empty }
+
+      board.board[:e4] = WhiteRook.new("e4")
+      white_rook = board.board[:e4]
+      board.board[:f4] = BlackRook.new("f4")
+      black_rook = board.board[:f4]
+      white_rook.next_move("e4", board.board)
+      expect(white_rook.moves).to eql(["f4", "d4", "c4", "b4", "a4", "e5", "e6", "e7", "e8", "e3", "e2", "e1"])
+      black_rook.next_move("f4", board.board)
+      expect(black_rook.moves).to eql(["g4", "h4", "e4", "f5", "f6", "f7", "f8", "f3", "f2", "f1"])
+    end
+    it "makes the last move available the team space if in line with moves" do
+      board = Board.new
+      empty = Empty.new
+      
+      board.board = board.board.each{ |key, value| board.board[key] = empty }
+      
+      board.board[:e4] = WhiteRook.new("e4")
+      white_rook = board.board[:e4]
+      board.board[:f4] = WhiteRook.new("f4")
+      black_rook = board.board[:f4]
+      white_rook.next_move("e4", board.board)
+      expect(white_rook.moves).to eql(["f4", "d4", "c4", "b4", "a4", "e5", "e6", "e7", "e8", "e3", "e2", "e1"])
+      black_rook.next_move("f4", board.board)
+      expect(black_rook.moves).to eql(["g4", "h4", "e4", "f5", "f6", "f7", "f8", "f3", "f2", "f1"])
+    end
+    it "doesn't allow king to move inline with a check i.e. it says rook has available moves through king" do
+      board = Board.new
+      empty = Empty.new
+
+      board.board = board.board.each{ |key, value| board.board[key] = empty }
+      
+      board.board[:e4] = WhiteRook.new("e4")
+      white_rook = board.board[:e4]
+      board.board[:f4] = BlackRook.new("f4")
+      black_rook = board.board[:f4]
+      board.board[:f5] = WhiteKing.new("f5")
+      board.board[:e3] = BlackKing.new("e3")
+      white_rook.next_move("e4", board.board)
+      expect(white_rook.moves).to eql(["f4", "d4", "c4", "b4", "a4", "e5", "e6", "e7", "e8", "e3", "e2", "e1"])
+      black_rook.next_move("f4", board.board)
+      expect(black_rook.moves).to eql(["g4", "h4", "e4", "f5", "f6", "f7", "f8", "f3", "f2", "f1"])
+    end
+
+  end
+
+end
+
+#Well firstly, your initialize test has two problems. The first is that is actually tests the board class, rather than the rook class. The second issue is it isn't really testing anything. You place a piece on the board then test the piece is actually there
+#Actually, other than that the tests are ok. The only real issue is a lot of repetition. A lot of the board setup could probably be moved to a helper class
+#Or to a before block or something
