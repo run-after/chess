@@ -3,26 +3,21 @@ require_relative "../lib/game.rb"
 RSpec.describe Knight do 
   describe "#team" do
     it "gives the corresponding color" do
-      knight = WhiteKnight.new("e4")
-      expect(knight.team).to eql("white")
-      knight = BlackKnight.new("e4")
-      expect(knight.team).to eql("black")
+      expect(WhiteKnight.new("e4").team).to eql("white")
+      expect(BlackKnight.new("e4").team).to eql("black")
     end
   end
   describe "#show" do
     it "prints out the corresponding piece" do
-      queen = WhiteKnight.new("e4")
-      expect(queen.show).to eql("[♞]")
-      queen = BlackKnight.new("e4")
-      expect(queen.show).to eql("[♘]")
+      expect(WhiteKnight.new("e4").show).to eql("[♞]")
+      expect(BlackKnight.new("e4").show).to eql("[♘]")
     end
   end
   describe "#next_move" do
     it "adds all potential moves to the @moves array" do
       board = Board.new
-      empty = Empty.new
 
-      board.board = board.board.each{ |key, value| board.board[key] = empty }
+      board.board = board.board.each{ |key, value| board.board[key] = Empty.new }
 
       knight = WhiteKnight.new("e4")
       knight.next_move("e4", board.board)
