@@ -1,5 +1,5 @@
 require_relative "../lib/game.rb"
-
+require "pry"
 RSpec.describe Pawn do 
   describe "#team" do
     it "gives the corresponding color" do
@@ -64,15 +64,13 @@ end
       expect(game.board.board[:e6].moves).to eql(["e5"])
     end
     it "promotes pawn that makes it to the last rank" do
-      game = Game.new
-      game.move("a2", "a8")
-      game.update
-      #if number given is 1
-      expect(game.board.board[:a8].is_a?(WhiteQueen)).to eql(true)
-      game.move("a7", "a1")
-      game.update
-      #if number given is 1
-      expect(game.board.board[:a1].is_a?(BlackQueen)).to eql(true)
+      board = Board.new
+      board.board = board.board.each{ |key, value| board.board[key] = Empty.new }
+     
+      expect_any_instance_of(Pawn).to receive(:gets).and_return("1")
+      white_pawn = WhitePawn.new("a8", board.board)
+      white_pawn.next_move("a8", board.board)
+      expect(board.board[:a8].is_a?(WhiteQueen)).to eql(true)
     end
   end
 end
