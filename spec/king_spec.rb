@@ -33,10 +33,12 @@ RSpec.describe King do
 
       king = WhiteKing.new("e4")
       board.board[:h5] = BlackRook.new("h5", board.board)
+      board.board[:h5].next_move("h5", board.board)
       king.next_move("e4", board.board)
       expect(king.moves).to eql(["f4", "f3", "e3", "d3", "d4"])
       king = BlackKing.new("e4")
       board.board[:h5] = WhiteRook.new("h5", board.board)
+      board.board[:h5].next_move("h5", board.board)
       king.next_move("e4", board.board)
       expect(king.moves).to eql(["f4", "f3", "e3", "d3", "d4"])
     end
