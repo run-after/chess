@@ -1,8 +1,9 @@
 class Board
-  attr_accessor :board
+  attr_accessor :board, :round
                 
   def initialize
     empty = Empty.new
+    @round = 1
     
     @board = {:a1 => WhiteRook.new("a1"), :b1 => WhiteKnight.new("b1"), :c1 => WhiteBishop.new("c1"), 
               :d1 => WhiteQueen.new("d1"), :e1 => WhiteKing.new("e1"), :f1 => WhiteBishop.new("f1"), 
@@ -60,97 +61,5 @@ class Board
     print "#{board[:f1].show}#{board[:g1].show}#{board[:h1].show}1"
     puts 
     puts " a  b  c  d  e  f  g  h"
-
   end
-
 end
-
-=begin
-
-@board = {:a1 => WhiteRook.new("a1"), :b1 => WhiteKnight.new("b1"), :c1 => WhiteBishop.new("c1"), 
-              :d1 => WhiteQueen.new("d1"), :e1 => WhiteKing.new("e1"), :f1 => WhiteBishop.new("f1"), 
-              :g1 => WhiteKnight.new("g1"), :h1 => WhiteRook.new("h1"),
-    
-              :a2 => WhitePawn.new("a2"), :b2 => WhitePawn.new("b2"), :c2 => WhitePawn.new("c2"), 
-              :d2 => WhitePawn.new("d2"), :e2 => WhitePawn.new("e2"), :f2 => WhitePawn.new("f2"), 
-              :g2 => WhitePawn.new("g2"), :h2 => WhitePawn.new("h2"),
-    
-              :a3 => empty, :b3 => empty, :c3 => empty, :d3 => empty, :e3 => empty, :f3 => empty,
-              :g3 => empty, :h3 => empty,
-    
-              :a4 => empty, :b4 => empty, :c4 => empty, :d4 => empty, :e4 => empty, :f4 => empty,
-              :g4 => empty, :h4 => empty,
-    
-              :a5 => empty, :b5 => empty, :c5 => empty, :d5 => empty, :e5 => empty, :f5 => empty,
-              :g5 => empty, :h5 => empty,
-    
-              :a6 => empty, :b6 => empty, :c6 => empty, :d6 => empty, :e6 => empty, :f6 => empty,
-              :g6 => empty, :h6 => empty,
-                    
-              :a7 => BlackPawn.new("a7"), :b7 => BlackPawn.new("b7"), :c7 => BlackPawn.new("c7"),
-              :d7 => BlackPawn.new("d7"), :e7 => BlackPawn.new("e7"), :f7 => BlackPawn.new("f7"),
-              :g7 => BlackPawn.new("g7"), :h7 => BlackPawn.new("h7"),
-                    
-              :a8 => BlackRook.new("a8"), :b8 => BlackKnight.new("b8"), :c8 => BlackBishop.new("c8"),
-              :d8 => BlackQueen.new("d8"), :e8 => BlackKing.new("e8"),  :f8 => BlackBishop.new("f8"),
-              :g8 => BlackKnight.new("g8"), :h8 => BlackRook.new("h8")}
-
-
-
-    @board = {:a1 => WhiteRook.new("a1"), :b1 => empty, :c1 => empty, 
-              :d1 => empty, :e1 => WhiteKing.new("e1"), :f1 => empty, 
-              :g1 => empty, :h1 => WhiteRook.new("h1"),
-    
-              :a2 => WhitePawn.new("a2"), :b2 => WhitePawn.new("b2"), :c2 => WhitePawn.new("c2"), 
-              :d2 => empty, :e2 => empty, :f2 => WhitePawn.new("f2"), 
-              :g2 => WhitePawn.new("g2"), :h2 => WhitePawn.new("h2"),
-    
-              :a3 => empty, :b3 => empty, :c3 => WhiteKnight.new("c3"), :d3 => empty, :e3 => empty, :f3 => empty,
-              :g3 => empty, :h3 => empty,
-    
-              :a4 => empty, :b4 => BlackBishop.new("b4"), :c4 => empty, :d4 => empty, :e4 => WhitePawn.new("e4"), :f4 => empty,
-              :g4 => empty, :h4 => empty,
-    
-              :a5 => empty, :b5 => WhiteBishop.new("b5"), :c5 => empty, :d5 => BlackPawn.new("d5"), :e5 => empty, :f5 => empty,
-              :g5 => empty, :h5 => empty,
-    
-              :a6 => empty, :b6 => empty, :c6 => empty, :d6 => BlackKing.new("d6"), :e6 => BlackPawn.new("e6"), :f6 => empty,
-              :g6 => empty, :h6 => empty,
-                    
-              :a7 => BlackPawn.new("a7"), :b7 => empty, :c7 => BlackPawn.new("c7"),
-              :d7 => empty, :e7 => empty, :f7 => WhiteQueen.new("f7"),
-              :g7 => empty, :h7 => empty,
-                    
-              :a8 => BlackRook.new("a8"), :b8 => BlackPawn.new("b8"), :c8 => BlackBishop.new("c8"),
-              :d8 => BlackQueen.new("d8"), :e8 => empty,  :f8 => empty,
-              :g8 => BlackRook.new("g8"), :h8 => empty}
-
-
-              {:a1 => WhitePawn.new("a1"), :b1 => empty, :c1 => empty, 
-             :d1 => empty, :e1 => empty, :f1 => empty, 
-             :g1 => empty, :h1 => empty,
-    
-             :a2 => empty, :b2 => empty, :c2 => empty, 
-             :d2 => empty, :e2 => empty, :f2 => WhiteKing.new("f2"), 
-             :g2 => empty, :h2 => empty,
-    
-             :a3 => empty, :b3 => empty, :c3 => empty, :d3 => empty, :e3 => empty, :f3 => empty,
-             :g3 => empty, :h3 => empty,
-    
-             :a4 => empty, :b4 => empty, :c4 => empty, :d4 => empty, :e4 => empty, :f4 => empty,
-             :g4 => empty, :h4 => empty,
-    
-             :a5 => empty, :b5 => empty, :c5 => empty, :d5 => empty, :e5 => empty, :f5 => empty,
-             :g5 => empty, :h5 => empty,
-    
-             :a6 => BlackRook.new("a6"), :b6 => BlackRook.new("b6"), :c6 => BlackRook.new("c6"), :d6 => BlackRook.new("d6"), :e6 => BlackRook.new("e6"), :f6 => empty,
-             :g6 => BlackRook.new("g6"), :h6 => BlackRook.new("h6"),
-                    
-             :a7 => empty, :b7 => empty, :c7 => empty,
-             :d7 => empty, :e7 => empty, :f7 => empty,
-             :g7 => BlackPawn.new("g7"), :h7 => empty,
-                    
-             :a8 => empty, :b8 => empty, :c8 => empty,
-             :d8 => empty, :e8 => empty,  :f8 => empty,
-             :g8 => empty, :h8 => BlackKing.new("h8")}
-=end
