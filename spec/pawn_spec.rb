@@ -74,4 +74,3 @@ end
     end
   end
 end
-#board.board = board.board.each{ |key, value| board.board[key] = empty }
