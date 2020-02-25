@@ -3,13 +3,18 @@ class Piece
   attr_accessor :position, :moves, :OG_position, :first_move, :en_passantable, :checker
     def initialize(position, board=nil)
       @OG_position = position
-      @checker = false # don't think used
+      #@checker = false # don't think used
       @first_move = true
       move1(position)
     end
 
+    def move1(position)
+      @position = position
+      @moves = []
+    end
+
     def enemy_square?(move, board)
-      board[move.to_sym] != nil && board[move.to_sym].team != self.team
+      board[move.to_sym] != nil && board[move.to_sym].is_a?(Piece) && board[move.to_sym].team != self.team
     end
   
     def empty_square?(move, board)

@@ -1,10 +1,5 @@
-require "./piece.rb"
-require "pry"
 class Bishop < Piece
-  def move1(position)
-    @position = position
-    @moves = []
-  end
+  
   def next_move(position, board)
     @position = position
     @moves = []
@@ -18,14 +13,14 @@ class Bishop < Piece
       if empty_square?(up_right, board)
         @moves << up_right 
         i+=1
-      elsif enemy_square?(up_right, board)###
+      elsif enemy_square?(up_right, board)
         @moves << up_right
         if board[up_right.to_sym].is_a?(King)
           i += 1
         else
           i = 8
         end
-      elsif team_square?(up_right, board)###
+      elsif team_square?(up_right, board)
         @moves << up_right
         i = 8
       else
@@ -39,14 +34,14 @@ class Bishop < Piece
       if empty_square?(down_right, board)
         @moves << down_right
         i+=1
-      elsif enemy_square?(down_right, board)###
+      elsif enemy_square?(down_right, board)
         @moves << down_right
         if board[down_right.to_sym].is_a?(King)
           i += 1
         else
           i = 8
         end
-      elsif team_square?(down_right, board)###
+      elsif team_square?(down_right, board)
         @moves << down_right
         i = 8
       else
@@ -60,14 +55,14 @@ class Bishop < Piece
       if empty_square?(up_left, board)
         @moves << up_left
         i+=1
-      elsif enemy_square?(up_left, board)###
+      elsif enemy_square?(up_left, board)
         @moves << up_left
         if board[up_left.to_sym].is_a?(King)
           i += 1
         else
           i = 8
         end
-      elsif team_square?(up_left, board)###
+      elsif team_square?(up_left, board)
         @moves << up_left
         i = 8
       else
@@ -81,14 +76,14 @@ class Bishop < Piece
       if empty_square?(down_left, board)
         @moves << down_left 
         i+=1
-      elsif enemy_square?(down_left, board)###
+      elsif enemy_square?(down_left, board)
         @moves << down_left 
         if board[down_left.to_sym].is_a?(King)
           i += 1
         else
           i = 8
         end
-      elsif team_square?(down_left, board)###
+      elsif team_square?(down_left, board)
         @moves << down_left 
         i = 8
       else
