@@ -1,0 +1,343 @@
+--- !ruby/object:Board
+round: 3
+board:
+  :a1: !ruby/object:WhiteRook
+    OG_position: a1
+    first_move: true
+    position: a1
+    moves:
+    - b1
+    - a2
+    checker: false
+  :b1: !ruby/object:WhiteKnight
+    OG_position: b1
+    first_move: true
+    position: b1
+    moves:
+    - c3
+    - d2
+    - a3
+    checker: false
+  :c1: !ruby/object:WhiteBishop
+    OG_position: c1
+    first_move: true
+    position: c1
+    moves:
+    - d2
+    - b2
+    checker: false
+  :d1: !ruby/object:WhiteQueen
+    OG_position: d1
+    first_move: true
+    position: d1
+    moves:
+    - e2
+    - c2
+    - e1
+    - c1
+    - d2
+    checker: false
+  :e1: !ruby/object:WhiteKing
+    OG_position: e1
+    first_move: true
+    position: e1
+    moves:
+    - e2
+    - f2
+    - f1
+    - d1
+    - d2
+    checked: false
+    checker: false
+  :f1: !ruby/object:WhiteBishop
+    OG_position: f1
+    first_move: true
+    position: f1
+    moves:
+    - g2
+    - e2
+    checker: false
+  :g1: !ruby/object:WhiteKnight
+    OG_position: g1
+    first_move: true
+    position: g1
+    moves:
+    - h3
+    - f3
+    - e2
+    checker: false
+  :h1: !ruby/object:WhiteRook
+    OG_position: h1
+    first_move: true
+    position: h1
+    moves:
+    - g1
+    - h2
+    - h3
+    - h4
+    checker: false
+  :a2: !ruby/object:WhitePawn
+    OG_position: a2
+    first_move: true
+    position: a2
+    moves:
+    - a3
+    - a4
+    en_passantable: false
+    en_passant: []
+    checker: false
+  :b2: !ruby/object:WhitePawn
+    OG_position: b2
+    first_move: true
+    position: b2
+    moves:
+    - b3
+    - b4
+    en_passantable: false
+    en_passant: []
+    checker: false
+  :c2: !ruby/object:WhitePawn
+    OG_position: c2
+    first_move: true
+    position: c2
+    moves:
+    - c3
+    - c4
+    en_passantable: false
+    en_passant: []
+    checker: false
+  :d2: !ruby/object:WhitePawn
+    OG_position: d2
+    first_move: true
+    position: d2
+    moves:
+    - d3
+    - d4
+    en_passantable: false
+    en_passant: []
+    checker: false
+  :e2: !ruby/object:WhitePawn
+    OG_position: e2
+    first_move: true
+    position: e2
+    moves:
+    - e3
+    - e4
+    en_passantable: false
+    en_passant: []
+    checker: false
+  :f2: !ruby/object:WhitePawn
+    OG_position: f2
+    first_move: true
+    position: f2
+    moves:
+    - f3
+    - f4
+    en_passantable: false
+    en_passant: []
+    checker: false
+  :g2: !ruby/object:WhitePawn
+    OG_position: g2
+    first_move: true
+    position: g2
+    moves:
+    - g3
+    - g4
+    en_passantable: false
+    en_passant: []
+    checker: false
+  :h2: !ruby/object:Empty {}
+  :a3: &1 !ruby/object:Empty {}
+  :b3: *1
+  :c3: *1
+  :d3: *1
+  :e3: *1
+  :f3: *1
+  :g3: *1
+  :h3: *1
+  :a4: *1
+  :b4: *1
+  :c4: *1
+  :d4: *1
+  :e4: *1
+  :f4: *1
+  :g4: *1
+  :h4: !ruby/object:WhitePawn
+    OG_position: h2
+    first_move: false
+    position: h4
+    moves:
+    - h5
+    en_passantable: false
+    en_passant: []
+    checker: false
+  :a5: !ruby/object:BlackPawn
+    OG_position: a7
+    first_move: false
+    position: a5
+    moves:
+    - a4
+    en_passantable: true
+    en_passant: []
+    checker: false
+  :b5: *1
+  :c5: *1
+  :d5: *1
+  :e5: *1
+  :f5: *1
+  :g5: *1
+  :h5: *1
+  :a6: *1
+  :b6: *1
+  :c6: *1
+  :d6: *1
+  :e6: *1
+  :f6: *1
+  :g6: *1
+  :h6: *1
+  :a7: !ruby/object:Empty {}
+  :b7: !ruby/object:BlackPawn
+    OG_position: b7
+    first_move: true
+    position: b7
+    moves:
+    - b6
+    - b5
+    en_passantable: false
+    en_passant: []
+    checker: false
+  :c7: !ruby/object:BlackPawn
+    OG_position: c7
+    first_move: true
+    position: c7
+    moves:
+    - c6
+    - c5
+    en_passantable: false
+    en_passant: []
+    checker: false
+  :d7: !ruby/object:BlackPawn
+    OG_position: d7
+    first_move: true
+    position: d7
+    moves:
+    - d6
+    - d5
+    en_passantable: false
+    en_passant: []
+    checker: false
+  :e7: !ruby/object:BlackPawn
+    OG_position: e7
+    first_move: true
+    position: e7
+    moves:
+    - e6
+    - e5
+    en_passantable: false
+    en_passant: []
+    checker: false
+  :f7: !ruby/object:BlackPawn
+    OG_position: f7
+    first_move: true
+    position: f7
+    moves:
+    - f6
+    - f5
+    en_passantable: false
+    en_passant: []
+    checker: false
+  :g7: !ruby/object:BlackPawn
+    OG_position: g7
+    first_move: true
+    position: g7
+    moves:
+    - g6
+    - g5
+    en_passantable: false
+    en_passant: []
+    checker: false
+  :h7: !ruby/object:BlackPawn
+    OG_position: h7
+    first_move: true
+    position: h7
+    moves:
+    - h6
+    - h5
+    en_passantable: false
+    en_passant: []
+    checker: false
+  :a8: !ruby/object:BlackRook
+    OG_position: a8
+    first_move: true
+    position: a8
+    moves:
+    - b8
+    - a7
+    - a6
+    - a5
+    checker: false
+  :b8: !ruby/object:BlackKnight
+    OG_position: b8
+    first_move: true
+    position: b8
+    moves:
+    - d7
+    - c6
+    - a6
+    checker: false
+  :c8: !ruby/object:BlackBishop
+    OG_position: c8
+    first_move: true
+    position: c8
+    moves:
+    - d7
+    - b7
+    checker: false
+  :d8: !ruby/object:BlackQueen
+    OG_position: d8
+    first_move: true
+    position: d8
+    moves:
+    - e7
+    - c7
+    - e8
+    - c8
+    - d7
+    checker: false
+  :e8: !ruby/object:BlackKing
+    OG_position: e8
+    first_move: true
+    position: e8
+    moves:
+    - f8
+    - f7
+    - e7
+    - d7
+    - d8
+    checked: false
+    checker: false
+  :f8: !ruby/object:BlackBishop
+    OG_position: f8
+    first_move: true
+    position: f8
+    moves:
+    - g7
+    - e7
+    checker: false
+  :g8: !ruby/object:BlackKnight
+    OG_position: g8
+    first_move: true
+    position: g8
+    moves:
+    - h6
+    - e7
+    - f6
+    checker: false
+  :h8: !ruby/object:BlackRook
+    OG_position: h8
+    first_move: true
+    position: h8
+    moves:
+    - g8
+    - h7
+    checker: false
